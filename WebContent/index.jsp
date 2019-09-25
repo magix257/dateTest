@@ -1,4 +1,5 @@
 <%@page import="java.util.Date" %>
+<%@page import="java.text.SimpleDateFormat" %>
 <%@ page language="java"  pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -11,12 +12,17 @@
 
  		Date today = new Date();
 
+SimpleDateFormat intlFormat = new SimpleDateFormat("dd-MM-yyyy");
+String intlToday = intlFormat.format(today);
+
 
 %>
 
 <body>
 
 Today is:  <%= today %>
+<br><br>
+Today is <%= intlToday %>
 
 </body>
 </html>
