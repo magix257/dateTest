@@ -16,6 +16,9 @@ SimpleDateFormat intlFormat = new SimpleDateFormat("dd-MM-yyyy");
 String intlToday = intlFormat.format(today);
 
 
+SimpleDateFormat usFormat = new SimpleDateFormat("MM/dd/yyyy");
+String usToday = usFormat.format(today);
+
 %>
 
 <body>
@@ -23,6 +26,7 @@ String intlToday = intlFormat.format(today);
 Today is:  <%= today %>
 <br><br>
 Today is <%= intlToday %>
-
+<br><br>
+Today is <%= usToday %>
 </body>
 </html>
