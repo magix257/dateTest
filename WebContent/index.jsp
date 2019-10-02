@@ -1,3 +1,5 @@
+<%@page import="java.util.Calendar"%>
+<%@page import="java.util.GregorianCalendar"%>
 <%@page import="java.util.Date" %>
 <%@page import="java.text.SimpleDateFormat" %>
 <%@ page language="java"  pageEncoding="UTF-8"%>
@@ -12,21 +14,63 @@
 
  		Date today = new Date();
 
-SimpleDateFormat intlFormat = new SimpleDateFormat("dd-MM-yyyy");
-String intlToday = intlFormat.format(today);
+GregorianCalendar calendar = new GregorianCalendar();
+
+int dzien = calendar.get(Calendar.DAY_OF_MONTH);
+int miesiac = calendar.get(Calendar.MONTH);
+int rok = calendar.get(Calendar.YEAR);
+
+Calendar cal = Calendar.getInstance();
+Calendar cal2 = Calendar.getInstance();
+
+int godzina = calendar.get(Calendar.HOUR_OF_DAY);
+int minuta = calendar.get(Calendar.MINUTE);
+int sekunda = calendar.get(Calendar.SECOND);
+
+Date d2 = cal.getTime();
 
 
-SimpleDateFormat usFormat = new SimpleDateFormat("MM/dd/yyyy");
-String usToday = usFormat.format(today);
+String data = String.valueOf(calendar.getTime());
+SimpleDateFormat format1 = new SimpleDateFormat("hh-mm-ss");
+String data2 = format1.format(calendar.getTime());
+
+
+
+
+long d = cal.getTimeInMillis();
+String data3 = format1.format(d);
+
+//cal2.set(Calendar.HOUR,1);
+//cal2.set(Calendar.MINUTE,00);
+//cal2.set(Calendar.SECOND,00);
+
+long d3 = cal2.getTimeInMillis();
+
+long d4 = d-3600000;
+
+String data4 = format1.format(d4);
 
 %>
 
 <body>
 
-Today is:  <%= today %>
+Dzien is:  <%= dzien %>
 <br><br>
-Today is <%= intlToday %>
+Miesiąc is <%= miesiac+1 %>
 <br><br>
-Today is <%= usToday %>
+Rok is <%= rok %>
+<br><br>
+Godzina is <%= godzina %>
+<br><br>
+Minuta is <%= minuta %>
+<br><br>
+Sekunda is <%= sekunda %>
+
+<br><br>
+Obecna godzina jest  <%= data3 %>
+
+<br><br>
+Godzina Obecna - 1 godzina jest <%= data4 %>
+
 </body>
 </html>
