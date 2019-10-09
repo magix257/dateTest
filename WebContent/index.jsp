@@ -2,6 +2,7 @@
 <%@page import="java.util.GregorianCalendar"%>
 <%@page import="java.util.Date" %>
 <%@page import="java.text.SimpleDateFormat" %>
+<%@page import="java.time.LocalDate" %>
 <%@ page language="java"  pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -32,6 +33,7 @@ Date d2 = cal.getTime();
 
 String data = String.valueOf(calendar.getTime());
 SimpleDateFormat format1 = new SimpleDateFormat("hh-mm-ss");
+SimpleDateFormat format2 = new SimpleDateFormat("hh-mm-ss-dd-MM-yyyy");
 String data2 = format1.format(calendar.getTime());
 
 
@@ -48,7 +50,7 @@ long d3 = cal2.getTimeInMillis();
 
 long d4 = d-3600000;
 
-String data4 = format1.format(d4);
+String data4 = format2.format(d4);
 
 %>
 
